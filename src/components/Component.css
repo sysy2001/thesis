@@ -1,0 +1,107 @@
+.desktop {
+  position: relative;
+  height: 100vh;
+  padding: 20px;
+}
+
+.folder-icon {
+  text-align: center;
+  cursor: pointer;
+  width: 100px;
+  padding-top: 20px;
+}
+
+.folder-icon img {
+  margin-bottom: -10px;
+}
+
+.folder-icon p {
+  margin-top: 0;
+  font-size: 15px;
+  padding-top: 12px;
+}
+
+.folder-window {
+  display: none;
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  width: 400px;
+  height: 300px;
+  background: white;
+  border: 2px solid #ccc;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.folder-window.open {
+  display: block;
+}
+
+.folder-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f0f0f0;
+  padding: 5px 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.folder-header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.folder-content {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  width: fit-content;
+  height: fit-content;
+}
+
+.icon {
+  text-align: center;
+}
+
+.icon p {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.folder-content .icon {
+  text-align: left;
+}
+
+.folder-content .icon p {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
+  padding: 10px;
+  font-family: Helvetica !important;
+  text-align: left;
+}
+
+.highlight {
+  background-color: #FF748B;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.highlight[data-action='built'] {
+  cursor: help;
+}
+
+/* Position for the first folder */
+.folder-icon:nth-child(1) {
+  top: 20px;
+}
+
+/* Position for the second folder */
+.folder-icon:nth-child(2) {
+  top: 140px;
+}
+  
