@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Draggable from 'react-draggable'; 
 import cloud from '../assets/cloud-1.png';
-import localVideo from '../assets/video.mp4'; 
 
 
 interface ClockFolderContentProps {
@@ -33,9 +32,11 @@ const ClockFolderContent: React.FC<ClockFolderContentProps> = ({ unzipClouds, se
 
 
       <h2>
-        <a href="#" onClick={openModal}>
+        {/* <a href="#" onClick={openModal}>
           playful
-        </a>, I’m trying to build a vocabulary for how I feel about time—not just fast or slow, short or long, old or ancient. 
+        </a>,  */}
+        
+        I’m trying to build a vocabulary for how I feel about time—not just fast or slow, short or long, old or ancient. 
         Time, to me, is deeply sentimental. It’s never just passing—it’s always intertwined with the things that are happening, with moments that stay with me.
       </h2>
 
