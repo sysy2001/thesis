@@ -1,6 +1,6 @@
-import { useState } from 'react';
+
 import Draggable from 'react-draggable';
-import cloud_1 from './assets/cloud_1.png';
+
 
 interface FolderIconProps {
   name: string;

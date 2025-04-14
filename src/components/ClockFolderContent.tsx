@@ -8,10 +8,9 @@ interface ClockFolderContentProps {
   setUnzipClouds: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ClockFolderContent: React.FC<ClockFolderContentProps> = ({ unzipClouds, setUnzipClouds }) => {
+const ClockFolderContent: React.FC<ClockFolderContentProps> = ({ setUnzipClouds }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const openModal = () => setIsModalOpen(true);
 
   return (
     <div>
@@ -32,9 +31,6 @@ const ClockFolderContent: React.FC<ClockFolderContentProps> = ({ unzipClouds, se
 
 
       <h2>
-        {/* <a href="#" onClick={openModal}>
-          playful
-        </a>,  */}
         
         I’m trying to build a vocabulary for how I feel about time—not just fast or slow, short or long, old or ancient. 
         Time, to me, is deeply sentimental. It’s never just passing—it’s always intertwined with the things that are happening, with moments that stay with me.
@@ -45,10 +41,7 @@ const ClockFolderContent: React.FC<ClockFolderContentProps> = ({ unzipClouds, se
         <Draggable defaultPosition={{ x: -220, y: 200 }}>
           <div style={modalStyles}>
             <div style={modalContentStyles}>
-              <video width="400" autoPlay loop>
-                <source src={localVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              
             </div>
           </div>
         </Draggable>
