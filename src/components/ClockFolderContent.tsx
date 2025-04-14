@@ -9,7 +9,6 @@ interface ClockFolderContentProps {
 }
 
 const ClockFolderContent: React.FC<ClockFolderContentProps> = ({ setUnzipClouds }) => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
 
   return (
@@ -36,16 +35,7 @@ const ClockFolderContent: React.FC<ClockFolderContentProps> = ({ setUnzipClouds 
         Time, to me, is deeply sentimental. It’s never just passing—it’s always intertwined with the things that are happening, with moments that stay with me.
       </h2>
 
-      {/* Modal with the video */}
-      {isModalOpen && (
-        <Draggable defaultPosition={{ x: -220, y: 200 }}>
-          <div style={modalStyles}>
-            <div style={modalContentStyles}>
-              
-            </div>
-          </div>
-        </Draggable>
-      )}
+
     </div>
   );
 };
