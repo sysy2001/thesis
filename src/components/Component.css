@@ -1,3 +1,15 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+}
+
+.desktop {
+  min-height: 100vh;
+}
+
+
 .desktop {
   position: relative;
   height: 100vh;
@@ -9,6 +21,7 @@
   cursor: pointer;
   width: 100px;
   padding-top: 20px;
+  position: absolute;
 }
 
 .folder-icon img {
@@ -26,12 +39,13 @@
   position: absolute;
   top: 100px;
   left: 20px;
-  width: 400px;
-  height: 300px;
+  width: 600px;
+  height: 400px;
   background: white;
   border: 2px solid #ccc;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
   z-index: 10;
+  overflow: auto;
 }
 
 .folder-window.open {
@@ -62,15 +76,6 @@
   height: fit-content;
 }
 
-.icon {
-  text-align: center;
-}
-
-.icon p {
-  margin-top: 0;
-  font-size: 14px;
-}
-
 .folder-content .icon {
   text-align: left;
 }
@@ -84,8 +89,17 @@
   text-align: left;
 }
 
+.folder-content p {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
+  padding: 10px;
+  font-family: Helvetica !important;
+  text-align: left;
+}
+
 .highlight {
-  background-color: #FF748B;
+  background-color: rgb(255, 85, 128, 0.5);
   padding: 2px 4px;
   border-radius: 3px;
   font-weight: bold;
@@ -95,13 +109,93 @@
   cursor: help;
 }
 
-/* Position for the first folder */
-.folder-icon:nth-child(1) {
-  top: 20px;
+.highlight[data-action='built']:hover {
+    box-shadow: 0 5px 15px rgba(174, 234, 148);
+  }
+
+
+.cloud-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../assets/cloud-bg.png');
+  transition: opacity 2s ease-in-out;
+  z-index: 1000; 
+  pointer-events: auto;
 }
 
-/* Position for the second folder */
-.folder-icon:nth-child(2) {
-  top: 140px;
+.image-container {
+  position: absolute;
+  opacity: 1;
+  transition: opacity 8s ease-in-out;
+  align-items: center;
 }
   
+.fade {
+  opacity: 0;
+}
+  
+
+.cloud-image {
+  width: 250px;
+  height: auto;
+  align-items: center;
+  transition: transform .2s;
+}
+
+.cloud-image:hover {
+    transform: scale(1.05); 
+
+}
+
+/* Drop + fade animation */
+@keyframes dropAndFade {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(50px); /* Adjust for how far you want it to "fall" */
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(80px);
+    opacity: 0;
+  }
+}
+
+
+.cloud-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.letter-drop {
+  display: inline-block;
+  animation-name: fallFade;
+  animation-fill-mode: forwards;
+  opacity: 1;
+}
+
+@keyframes fallFade {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+}
+
+.caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 300px;
+}

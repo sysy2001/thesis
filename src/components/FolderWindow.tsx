@@ -1,32 +1,39 @@
-import MyFolderContent from './MyFolderContent';
-import TestFolderContent from './TestFolderContent';
+import React from 'react';
+import JournalFolderContent from './JournalFolderContent';
+import ClockFolderContent from './ClockFolderContent';
+import ReadmeFolderContent from './ReadmeFolderContent';
 
 interface FolderWindowProps {
   name: string;
   onClose: () => void;
+  unzipClouds?: boolean; // Optional prop
+  setUnzipClouds?: React.Dispatch<React.SetStateAction<boolean>>; // Optional prop
 }
 
-const FolderWindow: React.FC<FolderWindowProps> = ({ name, onClose }) => {
+const FolderWindow: React.FC<FolderWindowProps> = ({ name, onClose, unzipClouds, setUnzipClouds }) => {
   return (
     <div className="folder-window open">
       <strong className="folder-header">
         <span>{name}</span>
         <button onClick={onClose}>X</button>
       </strong>
-      <div 
-        className="folder-content" 
-        style={{ 
-          position: "relative", 
-          width: "500px", 
-          height: "400px", 
-          overflow: "hidden" 
+      <div
+        className="folder-content"
+        style={{
+          position: 'relative',
+          overflow: 'auto',
         }}
       >
-        {name === "My Folder" && <MyFolderContent />}
-        {name === "Test" && <TestFolderContent />}
+        {name === 'Journal' && <JournalFolderContent />}
+        
+        {name === 'Clock' && unzipClouds !== undefined && setUnzipClouds && (
+          <ClockFolderContent unzipClouds={unzipClouds} setUnzipClouds={setUnzipClouds} />
+        )}
+
+        {name === 'README' && <ReadmeFolderContent onClose={onClose} />}
       </div>
     </div>
   );
 };
 
-export default FolderWindow; 
+export default FolderWindow;
