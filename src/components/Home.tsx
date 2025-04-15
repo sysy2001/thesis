@@ -11,7 +11,8 @@ import FolderIcon3 from '../assets/folder-3.png';
 import FolderIcon5 from '../assets/folder-5.png';
 import FolderIcon6 from '../assets/folder-6.png';
 import FolderIcon7 from '../assets/folder-7.png';
-import {Clouds, fixedPositions } from '../data/Assets.tsx';
+import {Clouds, fixedPositions } from '../data/assets.tsx';
+import MusicFolderContent from './MusicFolderContent';
 
 const Home: React.FC = () => {
   const [folders, setFolders] = useState<{ [key: string]: { isOpen: boolean, image: string } }>({
@@ -146,20 +147,24 @@ const Home: React.FC = () => {
       {/* Folder Windows */}
       {Object.entries(folders).map(([folderName, folderData]) =>
         folderData.isOpen ? (
-          <Draggable handle="strong" key={folderName}>
-            <div>
-              {folderName === "README" ? (
-                <ReadmeFolderContent onClose={() => toggleFolder(folderName)} />
-              ) : (
-                <FolderWindow
-                  name={folderName}
-                  onClose={() => toggleFolder(folderName)}
-                  unzipClouds={unzipClouds}
-                  setUnzipClouds={setUnzipClouds}
-                />
-              )}
-            </div>
-          </Draggable>
+          folderName === "Music" ? (
+            <MusicFolderContent onClose={() => toggleFolder(folderName)} />
+          ) : (
+            <Draggable handle="strong" key={folderName}>
+              <div>
+                {folderName === "README" ? (
+                  <ReadmeFolderContent onClose={() => toggleFolder(folderName)} />
+                ) : (
+                  <FolderWindow
+                    name={folderName}
+                    onClose={() => toggleFolder(folderName)}
+                    unzipClouds={unzipClouds}
+                    setUnzipClouds={setUnzipClouds}
+                  />
+                )}
+              </div>
+            </Draggable>
+          )
         ) : null
       )}
     </div>

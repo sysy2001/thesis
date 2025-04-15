@@ -1,0 +1,128 @@
+:root {
+  --c-bg: #F4F3F0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  background-color: #F4F3F0; 
+}
+
+/* Debug styles */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/cloud-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.music-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--c-bg);
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.circle-indicator {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #FF5E2B;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 10000;
+}
+
+.scroller {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  padding-left: 150px;
+  box-sizing: border-box;
+}
+
+.scroll-content {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  min-height: calc(100vh + (var(--lyric-count) * 200px));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lyric-line {
+  font-size: 1.5rem;
+  margin: 100px 0;
+  color: #aaa;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+  text-align: center;
+  width: 50%;
+}
+
+.lyric-line.highlight-lyrics {
+  color: #222;
+  font-weight: bold;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.media-display {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  width: 300px;
+  height: 300px;
+  background-color: #f5f5f5;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.media-content {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.media-content audio {
+  width: 100%;
+}

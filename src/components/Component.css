@@ -103,6 +103,8 @@ body, html {
   padding: 2px 4px;
   border-radius: 3px;
   font-weight: bold;
+  cursor: help;
+  box-shadow: 0 5px 15px rgba(174, 234, 148);
 }
 
 .highlight[data-action='built'] {
@@ -139,7 +141,7 @@ body, html {
   
 
 .cloud-image {
-  width: 250px;
+  width: 200px;
   height: auto;
   align-items: center;
   transition: transform .2s;
@@ -157,7 +159,7 @@ body, html {
     opacity: 1;
   }
   70% {
-    transform: translateY(50px); /* Adjust for how far you want it to "fall" */
+    transform: translateY(50px); 
     opacity: 0.5;
   }
   100% {
@@ -198,4 +200,31 @@ body, html {
   justify-content: center;
   text-align: center;
   max-width: 300px;
+}
+
+.music-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  z-index: 9999;
+}
+
+.music-overlay .close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.music-content {
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
 }

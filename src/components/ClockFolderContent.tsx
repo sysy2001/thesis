@@ -1,7 +1,4 @@
 
-import Draggable from 'react-draggable'; 
-import cloud from '../assets/cloud-1.png';
-
 
 interface ClockFolderContentProps {
   unzipClouds: boolean;
@@ -13,7 +10,7 @@ const ClockFolderContent: React.FC<ClockFolderContentProps> = ({ setUnzipClouds 
 
   return (
     <div>
-      <Draggable defaultPosition={{ x: 0, y: 0 }} bounds="parent">
+      {/* <Draggable defaultPosition={{ x: 0, y: 0 }} bounds="parent">
         <div className="icon" style={{ position: "absolute" }}>
           <img 
             src={cloud} 
@@ -25,14 +22,17 @@ const ClockFolderContent: React.FC<ClockFolderContentProps> = ({ setUnzipClouds 
             onDoubleClick={() => setUnzipClouds(true)} // Trigger unzip action
           />
         </div>
-      </Draggable>
-
-
+      </Draggable> */}
 
       <h2>
         
-        I’m trying to build a vocabulary for how I feel about time—not just fast or slow, short or long, old or ancient. 
+        {/* I’m trying to build a  */}
+        
+        <span className="highlight" onDoubleClick={() => setUnzipClouds(true)}> placeholder </span> 
+        
+        {/* vocabulary for how I feel about time—not just fast or slow, short or long, old or ancient. 
         Time, to me, is deeply sentimental. It’s never just passing—it’s always intertwined with the things that are happening, with moments that stay with me.
+       */}
       </h2>
 
 
