@@ -14,34 +14,29 @@ import FolderIcon7 from '../assets/folder-7.png';
 import { Clouds, fixedPositions } from '../data/assets';
 import MusicFolderContent from './MusicFolderContent';
 
-interface CloudImage {
+type CloudType = {
   id: number;
   src: string;
   caption: string;
   top: string;
   left: string;
-}
+};
+
 
 const Home: React.FC = () => {
-  const [folders, setFolders] = useState<{ [key: string]: { isOpen: boolean, image: string } }>({
-    "Journal": { isOpen: false, image: FolderIcon1 },
-    "Clock": { isOpen: false, image: FolderIcon2 },
-    "Music": { isOpen: false, image: FolderIcon3 },
-    "Recipes": { isOpen: false, image: FolderIcon5 },
-    "Photos": { isOpen: false, image: FolderIcon6 },
-    "Games": { isOpen: false, image: FolderIcon7 },
-    "README": { isOpen: false, image: TextFileIcon },
+  const [folders, setFolders] = useState<{ [key: string]: { isOpen: boolean; image: string } }>({
+    Journal: { isOpen: false, image: FolderIcon1 },
+    Clock: { isOpen: false, image: FolderIcon2 },
+    Music: { isOpen: false, image: FolderIcon3 },
+    Recipes: { isOpen: false, image: FolderIcon5 },
+    Photos: { isOpen: false, image: FolderIcon6 },
+    Games: { isOpen: false, image: FolderIcon7 },
+    README: { isOpen: false, image: TextFileIcon },
   });
 
   const [selectedFolder, setSelectedFolder] = useState<string | null>(null);
   const [unzipClouds, setUnzipClouds] = useState<boolean>(false);
   const [fadingImages, setFadingImages] = useState<number[]>([]);
-  const [cloudArray, setCloudArray] = useState<CloudImage[]>(
-    Clouds.map((cloud, index) => ({
-      ...cloud,
-      ...fixedPositions[index],
-    }))
-  );
 
   const toggleFolder = (folderName: string) => {
     setFolders((prev) => ({
@@ -54,18 +49,30 @@ const Home: React.FC = () => {
     setSelectedFolder(folderName);
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const imageClick = (id: number) => {
     setFadingImages((prev) => [...prev, id]);
-  
+
     setTimeout(() => {
       setCloudArray((prev) => prev.filter((img) => img.id !== id));
       setFadingImages((prev) => prev.filter((i) => i !== id));
-    }, 5000); 
+    }, 5000);
   };
+
+  const [cloudArray, setCloudArray] = useState<CloudType[]>(
+    Clouds.map((cloud, index) => ({
+      ...cloud,
+      ...fixedPositions[index],
+    }))
+  );
 
   useEffect(() => {
     if (cloudArray.length === 0 && unzipClouds) {
       setUnzipClouds(false);
+
       setCloudArray(
         Clouds.map((cloud, index) => ({
           ...cloud,
@@ -88,7 +95,7 @@ const Home: React.FC = () => {
               >
                 <img src={image.src} alt="cloud" className="cloud-image" />
                 <div className="caption">
-                  {image.caption.split("").map((char: string, i: number) => (
+                  {image.caption.split('').map((char, i) => (
                     <span
                       key={i}
                       className="letter-drop"
@@ -97,7 +104,7 @@ const Home: React.FC = () => {
                         animationDuration: `${2 + Math.random() * 2}s`,
                       }}
                     >
-                      {char === " " ? "\u00A0" : char}
+                      {char === ' ' ? '\u00A0' : char}
                     </span>
                   ))}
                 </div>
@@ -116,6 +123,7 @@ const Home: React.FC = () => {
         </div>
       )}
 
+      {/* Folder Icons */}
       {Object.entries(folders).map(([folderName, folderData], index) => (
         <FolderIconComponent
           key={folderName}
@@ -128,14 +136,15 @@ const Home: React.FC = () => {
         />
       ))}
 
+      {/* Folder Windows */}
       {Object.entries(folders).map(([folderName, folderData]) =>
         folderData.isOpen ? (
-          folderName === "Music" ? (
-            <MusicFolderContent onClose={() => toggleFolder(folderName)} />
+          folderName === 'Music' ? (
+            <MusicFolderContent key={folderName} onClose={() => toggleFolder(folderName)} />
           ) : (
             <Draggable handle="strong" key={folderName}>
               <div>
-                {folderName === "README" ? (
+                {folderName === 'README' ? (
                   <ReadmeFolderContent onClose={() => toggleFolder(folderName)} />
                 ) : (
                   <FolderWindow
