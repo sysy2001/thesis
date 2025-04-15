@@ -11,7 +11,7 @@ import FolderIcon3 from '../assets/folder-3.png';
 import FolderIcon5 from '../assets/folder-5.png';
 import FolderIcon6 from '../assets/folder-6.png';
 import FolderIcon7 from '../assets/folder-7.png';
-import { Clouds, fixedPositions } from '../data/assets';
+import { Clouds, fixedPositions } from '../data/CloudAssets.tsx';
 import MusicFolderContent from './MusicFolderContent';
 
 type CloudType = {
@@ -61,13 +61,16 @@ const Home: React.FC = () => {
       setFadingImages((prev) => prev.filter((i) => i !== id));
     }, 5000);
   };
-
+  
   const [cloudArray, setCloudArray] = useState<CloudType[]>(
     Clouds.map((cloud, index) => ({
-      ...cloud,
-      ...fixedPositions[index],
+      ...cloud, 
+      top: fixedPositions[index].top, 
+      left: fixedPositions[index].left,
     }))
   );
+  
+  
 
   useEffect(() => {
     if (cloudArray.length === 0 && unzipClouds) {
