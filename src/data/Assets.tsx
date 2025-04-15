@@ -7,7 +7,32 @@ import cloud6 from '../assets/cloud-6.png';
 import cloud7 from '../assets/cloud-7.png';
 import cloud8 from '../assets/cloud-8.png';
 
-export const fixedPositions = [
+export interface Cloud {
+  id: number;
+  src: string;
+  caption: string;
+}
+
+export interface Position {
+  top: string;
+  left: string;
+}
+
+export const Clouds: Cloud[] = [
+  { id: 1, src: "/assets/cloud1.png", caption: "Cloud 1" },
+  { id: 2, src: "/assets/cloud2.png", caption: "Cloud 2" },
+  { id: 3, src: "/assets/cloud3.png", caption: "Cloud 3" },
+  { id: 4, src: "/assets/cloud4.png", caption: "Cloud 4" },
+  { id: 5, src: "/assets/cloud5.png", caption: "Cloud 5" },
+  { id: 6, src: "/assets/cloud6.png", caption: "Cloud 6" },
+  { id: 7, src: "/assets/cloud7.png", caption: "Cloud 7" },
+  { id: 8, src: "/assets/cloud8.png", caption: "Cloud 8" },
+];
+
+export const fixedPositions: Position[] = [
+  { top: "10%", left: "20%" },
+  { top: "30%", left: "60%" },
+  { top: "50%", left: "40%" },
   { top: "10vh", left: "10vw" },
   { top: "27vh", left: "60vw" },
   { top: "45vh", left: "5vw" },
@@ -16,47 +41,4 @@ export const fixedPositions = [
   { top: "55vh", left: "75vw" },
   { top: "5vh", left: "75vw" },
   { top: "20vh", left: "30vw" },
-];
-
-export const Clouds = [
-  {
-    id: 1,
-    src: cloud1,
-    caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
-  {
-    id: 2,
-    src: cloud2,
-    caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
-  {
-    id: 3,
-    src: cloud3,
-    caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
-  {
-    id: 4,
-    src: cloud4,
-    caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
-  {
-    id: 5,
-    src: cloud5,
-    caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
-  {
-    id: 6,
-    src: cloud6,
-    caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
-  {
-    id: 7,
-    src: cloud7,
-    caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
-  {
-    id: 8,
-    src: cloud8,
-    caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
 ];

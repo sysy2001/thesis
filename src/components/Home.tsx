@@ -11,8 +11,16 @@ import FolderIcon3 from '../assets/folder-3.png';
 import FolderIcon5 from '../assets/folder-5.png';
 import FolderIcon6 from '../assets/folder-6.png';
 import FolderIcon7 from '../assets/folder-7.png';
-import {Clouds, fixedPositions } from '../data/assets.tsx';
+import { Clouds, fixedPositions } from '../data/assets';
 import MusicFolderContent from './MusicFolderContent';
+
+interface CloudImage {
+  id: number;
+  src: string;
+  caption: string;
+  top: string;
+  left: string;
+}
 
 const Home: React.FC = () => {
   const [folders, setFolders] = useState<{ [key: string]: { isOpen: boolean, image: string } }>({
@@ -26,8 +34,14 @@ const Home: React.FC = () => {
   });
 
   const [selectedFolder, setSelectedFolder] = useState<string | null>(null);
-
   const [unzipClouds, setUnzipClouds] = useState<boolean>(false);
+  const [fadingImages, setFadingImages] = useState<number[]>([]);
+  const [cloudArray, setCloudArray] = useState<CloudImage[]>(
+    Clouds.map((cloud, index) => ({
+      ...cloud,
+      ...fixedPositions[index],
+    }))
+  );
 
   const toggleFolder = (folderName: string) => {
     setFolders((prev) => ({
@@ -40,13 +54,6 @@ const Home: React.FC = () => {
     setSelectedFolder(folderName);
   };
 
-  useEffect(() => {
-    window.scrollTo(0, 0); 
-  }, []);
-
-
-  const [fadingImages, setFadingImages] = useState<number[]>([]);
-
   const imageClick = (id: number) => {
     setFadingImages((prev) => [...prev, id]);
   
@@ -55,21 +62,10 @@ const Home: React.FC = () => {
       setFadingImages((prev) => prev.filter((i) => i !== id));
     }, 5000); 
   };
-  
 
-  
-  const [cloudArray, setCloudArray] = useState(
-    Clouds.map((cloud, index) => ({
-      ...cloud,
-      ...fixedPositions[index],
-    }))
-  );
-  
   useEffect(() => {
     if (cloudArray.length === 0 && unzipClouds) {
       setUnzipClouds(false);
-    //   alert("again");
-  
       setCloudArray(
         Clouds.map((cloud, index) => ({
           ...cloud,
@@ -78,60 +74,48 @@ const Home: React.FC = () => {
       );
     }
   }, [cloudArray, unzipClouds]);
-  
-
-  
 
   return (
     <div className="desktop">
-
-    {unzipClouds && (
+      {unzipClouds && (
         <div className="cloud-overlay">
-            {cloudArray.map((image) =>
-                fadingImages.includes(image.id) ? (
-                    <div
-                    key={image.id}
-                    className="image-container fade"
-                    style={{ top: image.top, left: image.left, position: 'absolute' }}
+          {cloudArray.map((image) =>
+            fadingImages.includes(image.id) ? (
+              <div
+                key={image.id}
+                className="image-container fade"
+                style={{ top: image.top, left: image.left, position: 'absolute' }}
+              >
+                <img src={image.src} alt="cloud" className="cloud-image" />
+                <div className="caption">
+                  {image.caption.split("").map((char: string, i: number) => (
+                    <span
+                      key={i}
+                      className="letter-drop"
+                      style={{
+                        animationDelay: `3s`,
+                        animationDuration: `${2 + Math.random() * 2}s`,
+                      }}
                     >
-                    <img src={image.src} alt="cloud" className="cloud-image" />
-                        <div className="caption">
-                        {image.caption.split("").map((char, i) => (
-                            <span
-                                key={i}
-                                className="letter-drop"
-                                style={{
-                                    animationDelay: `3s`,
-                                    animationDuration: `${2 + Math.random() * 2}s`,
-                                }}
-                            >
-                            {char === " " ? "\u00A0" : char}
-                            </span>
-                        ))}
-                        </div>
-
-                    </div>
-                ) : (
-                    <div
-                    key={image.id}
-                    className="image-container"
-                    style={{ top: image.top, left: image.left, position: 'absolute' }}
-                    onClick={() => imageClick(image.id)}
-                    >
-                    <img src={image.src} alt="cloud" className="cloud-image" />
-                    </div>
-                )
-                )}
-
-
-
+                      {char === " " ? "\u00A0" : char}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div
+                key={image.id}
+                className="image-container"
+                style={{ top: image.top, left: image.left, position: 'absolute' }}
+                onClick={() => imageClick(image.id)}
+              >
+                <img src={image.src} alt="cloud" className="cloud-image" />
+              </div>
+            )
+          )}
         </div>
       )}
 
-      
-
-
-      {/* Folder Icons */}
       {Object.entries(folders).map(([folderName, folderData], index) => (
         <FolderIconComponent
           key={folderName}
@@ -144,7 +128,6 @@ const Home: React.FC = () => {
         />
       ))}
 
-      {/* Folder Windows */}
       {Object.entries(folders).map(([folderName, folderData]) =>
         folderData.isOpen ? (
           folderName === "Music" ? (
