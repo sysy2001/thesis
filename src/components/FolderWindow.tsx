@@ -1,36 +1,39 @@
 import React from 'react';
-import JournalFolderContent from './JournalFolderContent';
+import './Component.css';
+import PhotosFolderContent from './PhotosFolderContent';
 import ClockFolderContent from './ClockFolderContent';
+import JournalFolderContent from './JournalFolderContent';
 import ReadmeFolderContent from './ReadmeFolderContent';
 
 interface FolderWindowProps {
   name: string;
   onClose: () => void;
-  unzipClouds?: boolean; // Optional prop
-  setUnzipClouds?: React.Dispatch<React.SetStateAction<boolean>>; // Optional prop
+  unzipClouds: boolean;
+  setUnzipClouds: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const FolderWindow: React.FC<FolderWindowProps> = ({ name, onClose, unzipClouds, setUnzipClouds }) => {
   return (
-    <div className="folder-window open">
+    <div className="folder-window">
       <strong className="folder-header">
-        <span>{name}</span>
-        <button onClick={onClose}>X</button>
+        <h2>{name}</h2>
+        <button className="close-button" onClick={onClose}>X</button>
       </strong>
-      <div
-        className="folder-content"
-        style={{
-          position: 'relative',
-          overflow: 'auto',
-        }}
-      >
-        {name === 'Journal' && <JournalFolderContent />}
-        
-        {name === 'Clock' && unzipClouds !== undefined && setUnzipClouds && (
+      <div className="folder-content">
+        {name === "Photos" ? (
+          <PhotosFolderContent onClose={onClose} />
+        ) : name === "Clock" ? (
           <ClockFolderContent unzipClouds={unzipClouds} setUnzipClouds={setUnzipClouds} />
+        ) : name === "Journal" ? (
+          <JournalFolderContent />
+        ) : name === "README" ? (
+          <ReadmeFolderContent onClose={onClose} />
+        ) : (
+          <div className="folder-content-text">
+            <p>This is the {name} folder content.</p>
+            
+          </div>
         )}
-
-        {name === 'README' && <ReadmeFolderContent onClose={onClose} />}
       </div>
     </div>
   );

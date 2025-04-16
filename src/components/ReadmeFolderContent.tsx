@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Draggable from 'react-draggable';
 import manifesto from '../assets/manifesto.jpg';
 import { createPortal } from 'react-dom';
+import React from 'react';
+import './Component.css';
 
 interface ReadmeFolderContentProps {
   onClose: () => void;
@@ -18,8 +20,8 @@ const ReadmeFolderContent: React.FC<ReadmeFolderContentProps> = ({ onClose }) =>
     <>
       <div className="folder-window open">
         <strong className="folder-header">
-          <span>README</span>
-          <button onClick={onClose}>X</button>
+          <h2>README</h2>
+          <button className="close-button" onClick={onClose}>X</button>
         </strong>
         <div className="folder-content">
           <div >

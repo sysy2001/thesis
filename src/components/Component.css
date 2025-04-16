@@ -35,7 +35,6 @@ body, html {
 }
 
 .folder-window {
-  display: none;
   position: absolute;
   top: 100px;
   left: 20px;
@@ -45,27 +44,44 @@ body, html {
   border: 2px solid #ccc;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
   z-index: 10;
-  overflow: auto;
-}
-
-.folder-window.open {
   display: block;
+  overflow: auto;
 }
 
 .folder-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f0f0f0;
-  padding: 5px 10px;
+  padding: 10px 15px;
+  background-color: #f0f0f0;
   border-bottom: 1px solid #ccc;
+  cursor: move;
 }
 
-.folder-header button {
+.folder-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.folder-header .close-button {
   background: none;
   border: none;
+  font-size: 16px;
   cursor: pointer;
+  padding: 2px 8px;
+  color: #666;
+  margin-top: -8px;
+  margin-right: -14px;
   font-weight: bold;
+  line-height: 1;
+}
+
+.folder-header .close-button:hover {
+  color: #000;
+  background-color: #e0e0e0;
+  border-radius: 3px;
 }
 
 .folder-content {
@@ -227,4 +243,82 @@ body, html {
   text-align: center;
   max-width: 800px;
   padding: 20px;
+}
+
+.photo-grid-container {
+  padding: 20px;
+  height: 100%;
+  overflow: auto;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap:  10px;
+  width: 100%;
+  height: 100%;
+}
+
+.photo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 8px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+
+.photo-item img {
+  margin-bottom: 8px;
+}
+
+.photo-item p {
+  margin: 0;
+  font-size: 12px;
+  color: #333;
+  text-align: center;
+}
+
+.photo-item img.zoomed {
+  transform: scale(2);
+  z-index: 20;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+.zoom-box-fixed {
+  position: fixed;
+  z-index: 10000;
+  background-color: white;
+  border-radius: 10px;
+  padding: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.zoom-box-fixed img {
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 8px;
+}
+
+.zoom-close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  margin-bottom: 4px;
+  margin-right: 4px;
+}
+
+.zoom-close:hover {
+  color: #ff5599;
 }
