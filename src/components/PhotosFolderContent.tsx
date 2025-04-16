@@ -21,13 +21,13 @@ interface ZoomedImage {
   y: number;
 }
 
-const PhotosFolderContent: React.FC<PhotosFolderContentProps> = ({ onClose }) => {
+const PhotosFolderContent: React.FC<PhotosFolderContentProps> = ({ }) => {
   const [zoomedImages, setZoomedImages] = useState<ZoomedImage[]>([]);
   const [hoveringImage, setHoveringImage] = useState<number | null>(null);
 
   const handleDoubleClick = (event: React.MouseEvent<HTMLImageElement>, src: string, id: number) => {
     const rect = event.currentTarget.getBoundingClientRect();
-    const offset = zoomedImages.length * 20; // 20px offset for each new image
+    // const offset = zoomedImages.length * 20; // 20px offset for each new image
     setZoomedImages(prev => [...prev, {
       id,
       src,
