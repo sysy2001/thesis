@@ -142,6 +142,7 @@ body, html {
   transition: opacity 2s ease-in-out;
   z-index: 1000; 
   pointer-events: auto;
+  /* background-color: #f0f0f0; */
 }
 
 .image-container {
@@ -282,6 +283,7 @@ body, html {
   font-size: 12px;
   color: #333;
   text-align: center;
+  padding: 0px;
 }
 
 .photo-item img.zoomed {
@@ -300,12 +302,14 @@ body, html {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  
 }
 
 .zoom-box-fixed img {
   max-width: 300px;
   max-height: 300px;
   border-radius: 8px;
+  
 }
 
 .zoom-close {
@@ -315,6 +319,7 @@ body, html {
   font-weight: bold;
   color: #333;
   cursor: pointer;
+  padding: 5px;
   margin-bottom: 4px;
   margin-right: 4px;
 }
@@ -322,3 +327,45 @@ body, html {
 .zoom-close:hover {
   color: #ff5599;
 }
+
+.zoomed-image-wrapper {
+  position: relative; 
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;  
+}
+
+.lucky-strip {
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  background: #fffbe6;
+  border: 1px dashed gold;
+  padding: 5px 10px;
+  font-size: 14px;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+
+  transform-origin: left center;
+  transform: scaleX(0);        
+  animation: revealBanner 0.8s ease-out forwards;
+}
+
+@keyframes revealBanner {
+  to {
+    transform: scaleX(1);      
+  }
+}
+
+
+.reveal-banner-btn {
+  background:transparent;
+  border: none;
+  padding: 0px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
