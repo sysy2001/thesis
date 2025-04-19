@@ -25,7 +25,7 @@ const FolderWindow: React.FC<FolderWindowProps> = ({ name, onClose, unzipClouds,
         ) : name === "Clock" ? (
           <ClockFolderContent unzipClouds={unzipClouds} setUnzipClouds={setUnzipClouds} />
         ) : name === "Journal" ? (
-          <JournalFolderContent  />
+          <JournalFolderContent onClose={onClose} />
         ) : name === "README" ? (
           <ReadmeFolderContent onClose={onClose} />
         ) : name === "Games" ? (
