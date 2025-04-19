@@ -369,3 +369,58 @@ body, html {
   box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
 
+
+
+
+.game-link {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 300px;
+    left: -200px;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #E1EACD;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    min-width: 800px;
+    min-height: 500px;
+    width: 90%;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    margin: 0;
+    min-width: 400px;
+}
+
+
+

@@ -1,15 +1,16 @@
+import React from 'react';
+import './Component.css';
 
 
-const JournalFolderContent: React.FC = () => {
+interface JournalFolderContentProps {
+    onClose: () => void;
+  }
+const JournalFolderContent: React.FC<JournalFolderContentProps> = ({ onClose }) => {
 
+    
   return (
     <>
-      <div className="folder-window">
-        <strong className="folder-header">
-          <span>Journal</span>
-        </strong>
-        
-      </div>
+       <div></div>
     </>
   );
 };

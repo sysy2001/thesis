@@ -22,6 +22,7 @@ interface PhotosFolderContentProps {
 interface ImageInfo {
   src: string;
   color: string;
+  sentence: string;
 }
 
 interface ZoomedImage {
@@ -62,17 +63,17 @@ const PhotosFolderContent: React.FC<PhotosFolderContentProps> = ({ }) => {
 
 
   const images: ImageInfo[] = [
-    { src: star_icon1, color: '#a3def7' },
-    { src: star_icon2, color: '#f7e96d' },
-    { src: star_icon3, color: '#f75993' },
-    { src: star_icon4, color: '#d47ff5' },
-    { src: star_icon5, color: '#7ff5a3' },
-    { src: star_icon6, color: '#f78c68' },
-    { src: star_icon7, color: '#ffbb54' },
-    { src: star_icon8, color: '#997dff' },
-    { src: star_icon9, color: '#a8ff7d' },
-    { src: star_icon10, color: '#ff7db5' },
-    { src: star_icon11, color: '#ffff75' }
+    { src: star_icon1, color: '#a3def7', sentence: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { src: star_icon2, color: '#f7e96d', sentence: 'something different' },
+    { src: star_icon3, color: '#f75993', sentence: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { src: star_icon4, color: '#d47ff5', sentence: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { src: star_icon5, color: '#7ff5a3', sentence: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { src: star_icon6, color: '#f78c68', sentence: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { src: star_icon7, color: '#ffbb54', sentence: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { src: star_icon8, color: '#997dff', sentence: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { src: star_icon9, color: '#a8ff7d', sentence: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { src: star_icon10, color: '#ff7db5', sentence: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { src: star_icon11, color: '#ffff75', sentence: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' }
   ];
 
   const zoomed = [zoomed_photo1, zoomed_photo1, zoomed_photo1, zoomed_photo1, zoomed_photo1, zoomed_photo1, zoomed_photo1, zoomed_photo1, zoomed_photo1, zoomed_photo1, zoomed_photo1];
@@ -136,7 +137,7 @@ const PhotosFolderContent: React.FC<PhotosFolderContentProps> = ({ }) => {
 
                 {zoomedImage.showBanner && (
                   <div className="lucky-strip" style={{ backgroundColor: zoomedImage.color }}>
-                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    {images[starIconIndex].sentence}
                   </div>
                 )}
               </div>
