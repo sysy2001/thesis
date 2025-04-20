@@ -1,4 +1,3 @@
-
 import Draggable from 'react-draggable';
 
 
@@ -12,15 +11,36 @@ interface FolderIconProps {
 }
 
 const folderPositions: { [key: string]: { x: number, y: number } } = {
-  // Left column
+  // 1 column
   "Journal": { x: -570, y: 20 },
-  "Clock": { x: -570, y: 150 },
+  "Time": { x: -570, y: 150 },
   "Music": { x: -570, y: 270 },
-  "Recipes": { x: -570, y: 390 },
-  // Right column
+  "Cookbook": { x: -570, y: 390 },
+  "notes.txt": { x: -570, y: 510 },
+
+  // 2 column
   "Photos": { x: -400, y: 20 },
   "Games": { x: -400, y: 150 },
   "README": { x: -400, y: 270 },
+  "Trash": { x: -400, y: 510 },
+
+  // 3 column
+  "screenshot-7": { x: -70, y: 20 },
+  "screenshot-8": { x: -70, y: 130 },
+  "screenshot-9": { x: -70, y: 170 },
+
+  // 4 column
+  "screenshot-4": { x: -70, y: 230 },
+  "screenshot-5": { x: -70, y: 250 },
+  "screenshot-6": { x: -230, y: 870 },
+
+  // 5 column
+  "screenshot-1": { x: -230, y: 20 },
+  "screenshot-2": { x: -230, y: 150 },
+  "screenshot-3": { x: -230, y: 270 },
+  "screenshot-10": { x: -230, y: 390 },
+  "screenshot-11": { x: -230, y: 510 },
+
 };
 
 const FolderIconComponent: React.FC<FolderIconProps> = ({ name, onToggle, image, isSelected, onSelect }) => {

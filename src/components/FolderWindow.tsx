@@ -5,6 +5,7 @@ import ClockFolderContent from './ClockFolderContent';
 import JournalFolderContent from './JournalFolderContent';
 import ReadmeFolderContent from './ReadmeFolderContent';
 import GameFolderContent from './GameFolderContent';
+import RecipeFolderContent from './RecipeFolderContent';
 interface FolderWindowProps {
   name: string;
   onClose: () => void;
@@ -22,7 +23,7 @@ const FolderWindow: React.FC<FolderWindowProps> = ({ name, onClose, unzipClouds,
       <div className="folder-content">
         {name === "Photos" ? (
           <PhotosFolderContent onClose={onClose} />
-        ) : name === "Clock" ? (
+        ) : name === "Time" ? (
           <ClockFolderContent unzipClouds={unzipClouds} setUnzipClouds={setUnzipClouds} />
         ) : name === "Journal" ? (
           <JournalFolderContent onClose={onClose} />
@@ -30,6 +31,8 @@ const FolderWindow: React.FC<FolderWindowProps> = ({ name, onClose, unzipClouds,
           <ReadmeFolderContent onClose={onClose} />
         ) : name === "Games" ? (
           <GameFolderContent onClose={onClose} />
+        ) : name === "Cookbook" ? (
+          <RecipeFolderContent onClose={onClose} />
         ) : (
           <div className="folder-content-text">
             <p>This is the {name} folder content.</p>
