@@ -26,13 +26,13 @@ const folderPositions: { [key: string]: { x: number, y: number } } = {
 
   // 3 column
   "screenshot-7": { x: -70, y: 20 },
-  "screenshot-8": { x: -70, y: 130 },
-  "screenshot-9": { x: -70, y: 170 },
+  "screenshot-8": { x: -70, y: 150 },
+  "screenshot-9": { x: -70, y: 270 },
 
   // 4 column
-  "screenshot-4": { x: -70, y: 230 },
-  "screenshot-5": { x: -70, y: 250 },
-  "screenshot-6": { x: -230, y: 870 },
+  "screenshot-4": { x: -70, y: 390 },
+  "screenshot-5": { x: -70, y: 510 },
+  "screenshot-6": { x: 100, y: 20 },
 
   // 5 column
   "screenshot-1": { x: -230, y: 20 },
@@ -40,6 +40,10 @@ const folderPositions: { [key: string]: { x: number, y: number } } = {
   "screenshot-3": { x: -230, y: 270 },
   "screenshot-10": { x: -230, y: 390 },
   "screenshot-11": { x: -230, y: 510 },
+
+  "YouTube": { x: 230, y: 20 },
+  "Todo": { x: -400, y: 390 },
+  "todo.txt": { x: -10, y: 630 },
 
 };
 
