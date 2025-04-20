@@ -96,9 +96,6 @@ const Home: React.FC = () => {
   const [fadingImages, setFadingImages] = useState<number[]>([]);
   const [openScreenshots, setOpenScreenshots] = useState<OpenScreenshot[]>([]);
 
-  const handleExternalLink = (link: string) => {
-    window.open(link, '_blank');
-  };
 
   const toggleFolder = (folderName: string) => {
     if (folderName.startsWith('screenshot-')) {
