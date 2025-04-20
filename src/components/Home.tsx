@@ -55,11 +55,9 @@ const Home: React.FC = () => {
   const [unzipClouds, setUnzipClouds] = useState<boolean>(false);
   const [fadingImages, setFadingImages] = useState<number[]>([]);
   const [showZoomedScreenshot, setShowZoomedScreenshot] = useState(false);
-  const [currentScreenshot, setCurrentScreenshot] = useState<string>('');
 
   const toggleFolder = (folderName: string) => {
     if (folderName.startsWith('screenshot-')) {
-      setCurrentScreenshot(folderName);
       setShowZoomedScreenshot(true);
       return;
     }
