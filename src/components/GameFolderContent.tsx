@@ -20,8 +20,10 @@ class Dot {
   text: string;
   isConnected: boolean;
   isNextAvailable: boolean;
+  textX: number;
+  textY: number;
 
-  constructor(x: number, y: number, num: string = '', text: string = '') {
+  constructor(x: number, y: number, num: string = '', text: string = '', textX: number, textY: number) {
     this.x = x;
     this.y = y;
     this.size = 10;
@@ -31,6 +33,8 @@ class Dot {
     this.text = text;
     this.isConnected = false;
     this.isNextAvailable = false;
+    this.textX = textX;
+    this.textY = textY;
   }
 
   draw(p5: any) {
@@ -38,7 +42,7 @@ class Dot {
       p5.textSize(12);
       p5.textAlign(p5.CENTER);
       p5.noStroke();
-      p5.text(this.text, this.x - this.size - 15, this.y - this.size - 15);  
+      p5.text(this.text, this.textX, this.textY);  
     }
    
     p5.strokeWeight(0.2);
@@ -48,7 +52,7 @@ class Dot {
       p5.fill(255);
       p5.textSize(12);
       p5.textAlign(p5.CENTER);
-      p5.text(this.num, this.x, this.y + this.size + 15);
+      p5.text(this.num, this.x, this.y + this.size + 10);
     } 
 
 
@@ -93,6 +97,13 @@ class Dot {
   isNear(p5: any, x: number, y: number) {
     return p5.dist(x, y, this.x, this.y) < this.size / 2;
   }
+
+  showText(p5: any) {
+    p5.fill(255);
+    p5.textSize(12);
+    p5.textAlign(p5.CENTER);
+    p5.text(this.text, this.textX, this.textY);
+  }
 }
 
 const sketch = (p5: any) => {
@@ -104,28 +115,28 @@ const sketch = (p5: any) => {
  
 
   let dotsArray = [
-    { x: 580, y: 480, num: '1', text: 'I had a friend in primary school.' },
-    { x: 620, y: 490, num: '2', text: 'She was really into astrology.' },
-    { x: 660, y: 450, num: '3', text: 'She told me Pisces was the most beautiful sign.' },
-    { x: 618, y: 410, num: '4', text: 'I looked it up and asked my mom to print out the constellation.' },
-    { x: 585, y: 420, num: '5', text: 'Is it? The most beautiful sign?' },
-    { x: 520, y: 400, num: '6', text: 'I started reading more about Pisces. I remembered some words—sentimental... imaginative...' },
-    { x: 380, y: 390, num: '7', text: 'Well, I’m not obsessed with it.' },
-    { x: 340, y: 382, num: '8', text: 'I just like knowing more about it—like knowing more about myself.' },
-    { x: 210, y: 410, num: '9', text: 'I wouldn’t say we’re incompatible just because of our signs.' },
-    { x: 150, y: 440, num: '10', text: 'If we’re compatible, it’s because of something else. Something like chemistry.' },
-    { x: 205, y: 350, num: '11', text: 'Is that too abstract? Like all these lines and dots.' },
-    { x: 260, y: 280, num: '12', text: 'I could be more specific about how I feel about connection.' },
-    { x: 280, y: 230, num: '13', text: 'Curiosity is one of my love languages, alongside the others.' },
-    { x: 320, y: 180, num: '14', text: 'So, if I’m curious about you,' },
-    { x: 338, y: 125, num: '15', text: 'and you’re curious about me,' },
-    { x: 310, y: 135, num: '16', text: 'then we’re already connected.' },
+    { x: 580, y: 480, num: '1', text: 'I had a friend in primary school.', textX: 480, textY: 500 },
+    { x: 620, y: 490, num: '2', text: 'She was really into astrology.' , textX: 620, textY: 530},
+    { x: 660, y: 450, num: '3', text: 'She told me Pisces was the most beautiful sign.' , textX: 670, textY: 480},
+    { x: 618, y: 410, num: '4', text: 'I looked it up and asked my mom to print out the constellation.' , textX: 618, textY: 390},
+    { x: 585, y: 420, num: '5', text: 'Is it? The most beautiful sign?' , textX: 710, textY: 420},
+    { x: 520, y: 400, num: '6', text: 'I started reading more about Pisces. I remembered some words—sentimental... imaginative...' , textX: 520, textY: 440},
+    { x: 380, y: 390, num: '7', text: 'Well, I’m not obsessed with it.' , textX: 380, textY: 420},
+    { x: 340, y: 382, num: '8', text: 'I just like knowing more about it—like knowing more about myself.' , textX: 410, textY: 360},
+    { x: 210, y: 410, num: '9', text: 'I wouldn’t say we’re incompatible just because of our signs.' , textX: 165, textY: 385},
+    { x: 150, y: 440, num: '10', text: 'If we’re compatible, it’s because of something else. Something like chemistry.' , textX: 230, textY: 480},
+    { x: 205, y: 350, num: '11', text: 'Is that too abstract? Like all these lines and dots.' , textX: 205, textY: 340},
+    { x: 260, y: 280, num: '12', text: 'I could be more specific about how I feel about connection.' , textX: 440, textY: 280},
+    { x: 280, y: 230, num: '13', text: 'Curiosity is one of my love languages, alongside the others.' , textX: 450, textY: 230},
+    { x: 320, y: 180, num: '14', text: 'So, if I’m curious about you,' , textX: 410, textY: 180},
+    { x: 338, y: 125, num: '15', text: 'and you’re curious about me,' , textX: 338, textY: 110},
+    { x: 310, y: 135, num: '16', text: 'then we’re already connected.' , textX: 220, textY: 140},
   ];
 
   p5.setup = () => {
     p5.createCanvas(800, 600);
     p5.background(225, 234, 205);
-    dots = dotsArray.map(dot => new Dot(dot.x, dot.y, dot.num, dot.text));
+    dots = dotsArray.map(dot => new Dot(dot.x, dot.y, dot.num, dot.text, dot.textX, dot.textY));
 
     updateNextAvailableDot();
     
@@ -219,7 +230,7 @@ const GameFolderContent: React.FC<GameFolderContentProps> = ({}) => {
   return (
     <>
       <div>
-        Do you want to play a <a onClick={handleOpen} className="game-link">game</a>?
+        Try to be more <a onClick={handleOpen} className="game-link">connected</a>?
       </div>
 
       {isModalOpen && (

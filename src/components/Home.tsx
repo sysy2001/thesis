@@ -74,7 +74,7 @@ const Home: React.FC = () => {
     Cookbook: { isOpen: false, image: FolderIcon5 },
     Photos: { isOpen: false, image: FolderIcon6 },
     Games: { isOpen: false, image: FolderIcon7 },
-    YouTube: { isOpen: false, image: YouTubeIcon },
+    'Something pink and cute': { isOpen: false, image: YouTubeIcon },
     README: { isOpen: true, image: TextFileIcon },
     'notes.txt': { isOpen: false, image: NotesIcon },
     'Trash': { isOpen: false, image: TrashIcon },
@@ -95,7 +95,7 @@ const Home: React.FC = () => {
   const [unzipClouds, setUnzipClouds] = useState<boolean>(false);
   const [fadingImages, setFadingImages] = useState<number[]>([]);
   const [openScreenshots, setOpenScreenshots] = useState<OpenScreenshot[]>([]);
-
+  const [openedFolders, setOpenedFolders] = useState<string[]>([]);
 
   const toggleFolder = (folderName: string) => {
     if (folderName.startsWith('screenshot-')) {
@@ -105,6 +105,14 @@ const Home: React.FC = () => {
         ...prev,
         [folderName]: { ...prev[folderName], isOpen: !prev[folderName].isOpen }
       }));
+
+      setOpenedFolders(prev => {
+        if (prev.includes(folderName)) {
+          return prev.filter(name => name !== folderName);
+        } else {
+          return [...prev, folderName];
+        }
+      });
     }
   };
 
@@ -234,32 +242,40 @@ const Home: React.FC = () => {
       {/* Folder Windows */}
       {Object.entries(folders).map(([folderName, folderData]) =>
         folderData.isOpen ? (
-          folderName === 'Music' ? (
-            <MusicFolderContent key={folderName} onClose={() => toggleFolder(folderName)} />
-          ) : folderName === 'Todo' ? (
-            <Draggable handle="strong" key={folderName}>
-              <div>
-                <TodoFolderContent onClose={() => toggleFolder(folderName)} />
-              </div>
-            </Draggable>
-          ) : folderName === 'YouTube' ? (
-            <YouTubeWindow key={folderName} onClose={() => toggleFolder(folderName)} />
-          ) : (
-            <Draggable handle="strong" key={folderName}>
-              <div>
-                {folderName === 'README' ? (
-                  <ReadmeFolderContent onClose={() => toggleFolder(folderName)} />
-                ) : (
-                  <FolderWindow
-                    name={folderName}
-                    onClose={() => toggleFolder(folderName)}
-                    unzipClouds={unzipClouds}
-                    setUnzipClouds={setUnzipClouds}
-                  />
-                )}
-              </div>
-            </Draggable>
-          )
+          <div 
+            key={folderName} 
+            style={{ 
+              zIndex: openedFolders.indexOf(folderName) + 1,
+              position: 'relative'
+            }}
+          >
+            {folderName === 'Music' ? (
+              <MusicFolderContent onClose={() => toggleFolder(folderName)} />
+            ) : folderName === 'Todo' ? (
+              <Draggable handle="strong">
+                <div>
+                  <TodoFolderContent onClose={() => toggleFolder(folderName)} />
+                </div>
+              </Draggable>
+            ) : folderName === 'Something pink and cute' ? (
+              <YouTubeWindow onClose={() => toggleFolder(folderName)} />
+            ) : (
+              <Draggable handle="strong">
+                <div>
+                  {folderName === 'README' ? (
+                    <ReadmeFolderContent onClose={() => toggleFolder(folderName)} />
+                  ) : (
+                    <FolderWindow
+                      name={folderName}
+                      onClose={() => toggleFolder(folderName)}
+                      unzipClouds={unzipClouds}
+                      setUnzipClouds={setUnzipClouds}
+                    />
+                  )}
+                </div>
+              </Draggable>
+            )}
+          </div>
         ) : null
       )}
 

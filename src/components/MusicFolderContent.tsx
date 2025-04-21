@@ -26,8 +26,6 @@ const MusicFolderContent: React.FC<MusicFolderContentProps> = ({ onClose }) => {
     const scroller = scrollRef.current;
     if (!scroller) return;
 
-    // document.documentElement.style.setProperty('--lyric-count', lyricLines.length.toString());
-
     const handleScroll = () => {
       const scrollTop = scroller.scrollTop;
       const scrollHeight = scroller.scrollHeight - scroller.clientHeight;

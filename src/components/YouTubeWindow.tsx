@@ -12,7 +12,7 @@ const YouTubeWindow: React.FC<YouTubeWindowProps> = ({ onClose }) => {
     >
       <div className="folder-window youtube-window">
         <div className="folder-header">
-          <strong className="folder-title">YouTube</strong>
+          <strong className="folder-title" style={{ color: '#ff69b4', fontFamily: 'Comic Sans MS, cursive' }}> 甜甜屋 </strong>
           <button className="close-button" onClick={onClose}>×</button>
         </div>
         <div className="youtube-content">

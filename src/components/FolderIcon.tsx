@@ -41,7 +41,7 @@ const folderPositions: { [key: string]: { x: number, y: number } } = {
   "screenshot-10": { x: -230, y: 390 },
   "screenshot-11": { x: -230, y: 510 },
 
-  "YouTube": { x: 230, y: 20 },
+  "Something pink and cute": { x: 230, y: 20 },
   "Todo": { x: -400, y: 390 },
   "todo.txt": { x: -10, y: 630 },
 

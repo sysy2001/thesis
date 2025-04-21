@@ -104,7 +104,7 @@ body::before {
 .media-display {
   position: absolute;
   top: 50%;
-  right: 40px;
+  right: 100px;
   transform: translateY(-50%);
   width: 300px;
   height: 300px;
