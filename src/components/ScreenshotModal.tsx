@@ -16,7 +16,7 @@ const ScreenshotModal: React.FC<ScreenshotModalProps> = ({ image, onClose, posit
           <img 
             src={image} 
             alt="Zoomed Screenshot" 
-            style={{ maxWidth: '100%', maxHeight: '50vh' }} 
+            style={{ maxWidth: '100%', maxHeight: '70vh' }} 
             draggable={false}
           />
         </div>
