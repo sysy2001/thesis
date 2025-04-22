@@ -123,6 +123,16 @@ body, html {
   box-shadow: 0 5px 15px rgba(174, 234, 148);
 }
 
+.highlight-cloud {
+  background-color: rgb(198, 231, 255, 0.5);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-weight: bold;
+  cursor: help;
+}
+.highlight-cloud:hover {
+  background-color: rgb(198, 231, 255, 1);
+}
 .highlight[data-action='built'] {
   cursor: help;
 }
