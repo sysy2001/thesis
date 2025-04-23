@@ -32,7 +32,7 @@ export const Clouds = [
   {
     id: 3,
     src: cloud3,
-    caption: "The first time I got a piercing, I was nervous and indecisive. I was afraid of the pain—my mom said it wouldn’t hurt, but I think she was lying. It did hurt. In a college writing class, we were once asked to write an analogy. The example essay was about piercing and losing _____. After I got my piercing, I related to it more.",
+    caption: "The first time I got a piercing, I was nervous and indecisive. I was afraid of the pain—my mom said it wouldn’t hurt, but I think she was lying. It did hurt. ",
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ export const Clouds = [
   {
     id: 5,
     src: cloud5,
-    caption: "The first and only time I took a solo trip was to Chicago. I just needed that"
+    caption: "The first and only time I took a solo trip was to Chicago. I just needed that break from everything. I almost lost my earbuds at the airport."
   },
   {
     id: 6,
