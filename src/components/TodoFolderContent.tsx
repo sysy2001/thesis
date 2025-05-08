@@ -11,7 +11,10 @@ interface TodoItem {
 }
 
 const TodoFolderContent: React.FC<TodoFolderContentProps> = ({ onClose }) => {
-  const [todos, setTodos] = useState<TodoItem[]>([]);
+  const [todos, setTodos] = useState<TodoItem[]>([
+    { id: 1, text: "Go present my thesis on May 9th", completed: false },
+    { id: 2, text: "Actually you can add yours too <3", completed: false },
+  ]);
   const [newTodo, setNewTodo] = useState('');
 
   const addTodo = () => {
@@ -33,10 +36,10 @@ const TodoFolderContent: React.FC<TodoFolderContentProps> = ({ onClose }) => {
 
   return (
     <div className="folder-window">
-      <div className="folder-header">
-        <strong className="folder-title">Todo List</strong>
-        <button className="close-button" onClick={onClose}>×</button>
-      </div>
+        <strong className="folder-header">
+          <h2>TODO List</h2>
+          <button className="close-button" onClick={onClose}>X</button>
+        </strong>
       <div className="todo-content">
         <div className="todo-input">
           <input

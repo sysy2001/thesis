@@ -42,6 +42,7 @@ import TodoFolderContent from './TodoFolderContent';
 import ScreenshotModal from './ScreenshotModal';
 import YouTubeIcon from '../assets/youtube.png';
 import YouTubeWindow from './YouTubeWindow';
+import TrashFolderContent from './TrashFolderContent';
 
 type CloudType = {
   id: number;
@@ -198,16 +199,18 @@ const Home: React.FC = () => {
               >
                 <img src={image.src} alt="cloud" className="cloud-image" />
                 <div className="caption">
-                  {image.caption.split('').map((char, i) => (
+                  {image.caption.split(' ').map((word, wordIndex) => (
                     <span
-                      key={i}
-                      className="letter-drop"
+                      key={wordIndex}
+                      className="word-drop"
                       style={{
                         animationDelay: `3s`,
                         animationDuration: `${2 + Math.random() * 2}s`,
+                        display: 'inline-block',
+                        marginRight: '0.1em'
                       }}
                     >
-                      {char === ' ' ? '\u00A0' : char}
+                      {word}
                     </span>
                   ))}
                 </div>
@@ -259,6 +262,12 @@ const Home: React.FC = () => {
               </Draggable>
             ) : folderName === 'Something pink and cute' ? (
               <YouTubeWindow onClose={() => toggleFolder(folderName)} />
+            ) : folderName === 'Trash' ? (
+              <Draggable handle="strong">
+                <div>
+                  <TrashFolderContent onClose={() => toggleFolder(folderName)} />
+                </div>
+              </Draggable>
             ) : (
               <Draggable handle="strong">
                 <div>

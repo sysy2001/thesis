@@ -32,7 +32,7 @@ export const Clouds = [
   {
     id: 3,
     src: cloud3,
-    caption: "The first time I got a piercing, I was nervous and indecisive. I was afraid of the pain—my mom said it wouldn’t hurt, but I think she was lying. It did hurt. ",
+    caption: "The first time I got a piercing, I was nervous and indecisive. I was afraid of the pain—my mom said it wouldn’t hurt, but I think she was trying to comfort me by lying. It did hurt. ",
   },
   {
     id: 4,
@@ -42,21 +42,21 @@ export const Clouds = [
   {
     id: 5,
     src: cloud5,
-    caption: "The first and only time I took a solo trip was to Chicago. I just needed that break from everything. I almost lost my earbuds at the airport."
+    caption: "The first and only time (for now) I took a solo trip was to Chicago. I know no one there, maybe it was because of that I feel more relaxed - I knew I needed that break from everything. Something unexpected: I almost lost my earbuds at the airport."
   },
   {
     id: 6,
     src: cloud6,
-    caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    caption: "The first time I almost got lost was in Hong Kong. I was 17, and somehow brave enough to wander around on my own. I remember my phone was about to die, too. But I found my way back.",
   },
   {
     id: 7,
     src: cloud7,
-    caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    caption: "The first time I heard my voice recorded — it was from a video my friend took during a spring outing. I didn’t like it. I guess most people don’t, right? It made me wonder how others hear me, and how different that is from how I hear myself.",
   },
   {
     id: 8,
     src: cloud8,
-    caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
+    caption: "The first time I sat in silence with a friend and didn’t feel awkward at all — I really enjoyed that quiet. It felt safe, like I didn’t need to fill the space with words. Later, as we grew closer, that comfortable silence turned into a curiosity — I wanted to know more, to hear more. I still think about that silence sometimes."
+  }
 ];
